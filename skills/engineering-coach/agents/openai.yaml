@@ -1,0 +1,4 @@
+interface:
+  display_name: "Engineering Coach"
+  short_description: "Understand and extend the code you ship with AI"
+  default_prompt: "Use $engineering-coach to explain this change and help me check my understanding."

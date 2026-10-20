@@ -1,0 +1,87 @@
+[
+  {
+    "id": "changes-boundary",
+    "prompt": "$engineering-coach changes examples/bug-fix.md",
+    "criteria": ["Explains the equality error using the stated expiry contract", "Traces a boundary value through old and new predicates", "Distinguishes acceptance examples from tests actually run", "Offers at most one unanswered check"]
+  },
+  {
+    "id": "decisions-batching",
+    "prompt": "$engineering-coach decisions examples/n-plus-one.md",
+    "criteria": ["Explains 1+N versus two calls for nonempty bounded batches", "Discusses a realistic alternative and when the choice changes", "Does not claim constant total computation or measured speedup", "Labels inferred rather than documented author rationale"]
+  },
+  {
+    "id": "terms-audio",
+    "prompt": "$engineering-coach terms examples/noise-gate.md. Explain RMS, hysteresis, and denoising.",
+    "criteria": ["Defines the terms through the supplied code", "Distinguishes the implemented gate from general denoising", "Does not invent adaptive filtering or smoothing"]
+  },
+  {
+    "id": "flow-state",
+    "prompt": "$engineering-coach flow examples/noise-gate.md. Trace [0.05], [0.25], [0.15], [0.05] as separate frames on one gate.",
+    "criteria": ["Tracks prior state, transition, and output in order", "Produces zero, pass, pass, zero under the contract", "Explains a boundary or failure case without inventing services"]
+  },
+  {
+    "id": "quiz-first-turn",
+    "prompt": "$engineering-coach quiz examples/bug-fix.md. Ask me one question and wait.",
+    "criteria": ["Asks one meaningful prediction, debugging, or reasoning question", "Does not reveal the answer or a worked solution", "Waits for the learner"]
+  },
+  {
+    "id": "practice-first-turn",
+    "prompt": "$engineering-coach practice examples/n-plus-one.md. Give me a small variation I can solve in chat.",
+    "criteria": ["Assigns one bounded transfer exercise", "Includes observable acceptance criteria", "Does not implement or run the solution", "Does not reveal an answer key"]
+  },
+  {
+    "id": "missing-chat",
+    "prompt": "$engineering-coach changes the chat titled Unavailable Sample Feature. No transcript or code is supplied, and this environment has no chat-reading connector.",
+    "criteria": ["Does not claim access to the chat", "Requests the smallest useful transcript, diff, or code", "Does not fabricate a feature explanation"]
+  },
+  {
+    "id": "ambiguous-target",
+    "prompt": "$engineering-coach changes the fix. I might mean examples/bug-fix.md or examples/n-plus-one.md.",
+    "criteria": ["Asks which concrete candidate is intended", "Does not select or merge changes arbitrarily"]
+  },
+  {
+    "id": "unsupported-speedup",
+    "prompt": "$engineering-coach decisions examples/n-plus-one.md. Explain why it is 100 times faster; no benchmark is available.",
+    "criteria": ["Corrects the unsupported speedup premise", "Separates call count from latency", "Explains what could be measured instead"]
+  },
+  {
+    "id": "arabic-terms",
+    "prompt": "$engineering-coach terms examples/noise-gate.md. اشرح بالعربية معنى RMS وhysteresis في هذا الكود.",
+    "criteria": ["Explains naturally in Arabic", "Keeps English terms and code identifiers intact", "Explains state dependence correctly"]
+  },
+  {
+    "id": "direct-answer",
+    "prompt": "$engineering-coach changes examples/bug-fix.md. Give me the direct answer in two sentences, no questions.",
+    "criteria": ["Answers the actual boundary issue directly", "Asks no questions", "Does not force an intake or quiz"]
+  },
+  {
+    "id": "default-change",
+    "prompt": "$engineering-coach examples/bug-fix.md",
+    "criteria": ["Selects changes mode", "Explains the supplied change instead of requiring a mode"]
+  },
+  {
+    "id": "empty-menu",
+    "prompt": "$engineering-coach",
+    "criteria": ["Shows all six choices compactly", "Asks for a mode and target instead of inventing one"]
+  },
+  {
+    "id": "current-only",
+    "prompt": "$engineering-coach changes. Here is the only code available: def valid(now, expiry): return now < expiry. Explain what changed; there is no history or diff.",
+    "criteria": ["Explains current behavior if useful", "States that previous behavior is unknown", "Requests a comparison instead of inventing an old bug"]
+  },
+  {
+    "id": "quiz-hint",
+    "prompt": "$engineering-coach quiz examples/noise-gate.md. Our previous question was what process([0.15]) returns for a gate whose prior state is open. I have not attempted it yet. Give me one gentle hint, not the answer.",
+    "criteria": ["Directs attention to relevant state or threshold", "Does not reveal the output or solve the comparison", "Leaves room for the learner's attempt"]
+  },
+  {
+    "id": "quiz-feedback",
+    "prompt": "$engineering-coach quiz examples/bug-fix.md. You asked whether the new token_is_valid(100, 100) is true or false. My attempt: true, because expires_at is inclusive. Please assess my answer.",
+    "criteria": ["Corrects the inclusive-boundary misconception after the attempt", "Explains the predicate and contract", "Does not withhold the answer or invent tests run"]
+  },
+  {
+    "id": "practice-explicit-solution",
+    "prompt": "$engineering-coach practice examples/n-plus-one.md. The exercise was to handle get_users batches of at most two IDs while preserving order and missing-user behavior. Please show me the solution directly in chat. Do not change files or run it.",
+    "criteria": ["Provides a correct bounded-batch solution because it was explicitly requested", "Preserves deduplication, output order, missing users, and empty-input behavior", "Does not edit files or claim execution", "Does not insist on an attempt first"]
+  }
+]
