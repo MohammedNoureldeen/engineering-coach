@@ -42,6 +42,10 @@ One initial current-only response stated the history limitation but ended with a
 
 This fallback verifies sampled teaching behavior with supplied materials. It does not independently prove automatic guide loading, file-reading integration, or permission enforcement by the skill. Follow-up scenarios supplied prior dialogue in the prompt rather than testing a persistent multi-turn session. The read-only sandbox and no-tool request also constrained possible side effects.
 
+## Published package
+
+Distribution was verified on **2026-10-21** at [MohammedNoureldeen/engineering-coach](https://github.com/MohammedNoureldeen/engineering-coach). An unauthenticated GitHub API request confirmed public access and the MIT license. A fresh clone of the published repository passed the package checker and all seven executable example tests. Copying `skills/engineering-coach` from that download into a scratch installation preserved all eight files, including all six mode guides.
+
 ## Reproduce and extend
 
 ```sh
